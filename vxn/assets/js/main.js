@@ -3,7 +3,7 @@
 // - Mobile navigation drawer
 // - Scroll reveal animations
 // - Contact form validation
-console.log("anazibg")
+
 (function () {
   var transitionDurationMs = 380;
   // Generation token used to cancel in-flight typing animations
