@@ -121,6 +121,11 @@
 .content-body blockquote p { margin-bottom: 16px; font-size: 20px; color: var(--color-text); }
 .content-body blockquote cite { color: var(--color-text-dim); font-size: 16px; font-style: normal; }
 
+/* Language-specific blog content blocks */
+.content-body-fr { display: none; }
+html[lang="fr"] .content-body-en { display: none; }
+html[lang="fr"] .content-body-fr { display: block; }
+
 .blog-post-cta { text-align: center; padding: 48px 0; margin-top: 48px; border-top: 1px solid var(--glass-border); }
 .blog-post-cta h3 { font-size: clamp(24px, 4vw, 32px); margin-bottom: 16px; }
 .blog-post-cta p { color: var(--color-text-dim); margin-bottom: 24px; font-size: 18px; }

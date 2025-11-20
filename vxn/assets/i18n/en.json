@@ -161,6 +161,66 @@
   "blog.posts.6.title": "A lightweight taxonomy for deal risk signals",
   "blog.posts.6.excerpt": "Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur.",
 
+  "blog.posts.7.meta": "CRM Strategy — 8 min read",
+  "blog.posts.7.category": "CRM Strategy",
+  "blog.posts.7.readTime": "8 min read",
+  "blog.posts.7.title": "Dynamics 365 CRM vs Salesforce: Which Is Right for Your Business in 2025?",
+  "blog.posts.7.excerpt": "Comparing Dynamics 365 vs Salesforce? Discover which CRM platform fits your business needs, budget, and growth goals in this comprehensive 2025 guide.",
+
+  "blog.posts.8.meta": "Dynamics 365 — 9 min read",
+  "blog.posts.8.category": "Dynamics 365",
+  "blog.posts.8.readTime": "9 min read",
+  "blog.posts.8.title": "What Is Microsoft Dynamics 365? A Complete Guide for Business Leaders",
+  "blog.posts.8.excerpt": "New to Dynamics 365? This complete guide explains what Microsoft Dynamics 365 is, how it works, and why business leaders are choosing it for digital transformation.",
+
+  "blog.posts.9.meta": "Power Platform — 8 min read",
+  "blog.posts.9.category": "Power Platform",
+  "blog.posts.9.readTime": "8 min read",
+  "blog.posts.9.title": "Power Platform Explained: Apps, Automate, BI, and Dataverse",
+  "blog.posts.9.excerpt": "Confused about Microsoft Power Platform? Learn how Power Apps, Power Automate, Power BI, and Dataverse work together to transform your business processes.",
+
+  "blog.posts.10.meta": "Pricing — 9 min read",
+  "blog.posts.10.category": "Pricing",
+  "blog.posts.10.readTime": "9 min read",
+  "blog.posts.10.title": "How Much Does Dynamics 365 CRM Cost in Canada? 2025 Pricing Breakdown",
+  "blog.posts.10.excerpt": "Planning a Dynamics 365 budget? Get a complete breakdown of Dynamics 365 CRM pricing in Canada, including licenses, implementation, and hidden costs in 2025.",
+
+  "blog.posts.11.meta": "Enterprise — 9 min read",
+  "blog.posts.11.category": "Enterprise",
+  "blog.posts.11.readTime": "9 min read",
+  "blog.posts.11.title": "Top 10 Benefits of Implementing Dynamics 365 CRM for Enterprises",
+  "blog.posts.11.excerpt": "Discover the top 10 benefits of Dynamics 365 CRM for enterprises, including better customer insights, automation, scalability, and measurable ROI in 2025.",
+
+  "blog.posts.12.meta": "Financial Services — 10 min read",
+  "blog.posts.12.category": "Financial Services",
+  "blog.posts.12.readTime": "10 min read",
+  "blog.posts.12.title": "Dynamics 365 for Financial Services: Compliance, Security, and Client Management",
+  "blog.posts.12.excerpt": "Learn how Dynamics 365 helps financial services firms manage clients, ensure compliance, and secure sensitive data while improving operational efficiency.",
+
+  "blog.posts.13.meta": "Power Apps — 9 min read",
+  "blog.posts.13.category": "Power Apps",
+  "blog.posts.13.readTime": "9 min read",
+  "blog.posts.13.title": "Power Apps vs Traditional Development: When to Use Low-Code Solutions",
+  "blog.posts.13.excerpt": "Should you build custom apps with Power Apps or hire developers? Learn when low-code solutions work best and when traditional development is necessary.",
+
+  "blog.posts.14.meta": "Implementation — 9 min read",
+  "blog.posts.14.category": "Implementation",
+  "blog.posts.14.readTime": "9 min read",
+  "blog.posts.14.title": "Common Mistakes Companies Make When Implementing Dynamics 365 (And How to Avoid Them)",
+  "blog.posts.14.excerpt": "Avoid costly Dynamics 365 implementation mistakes. Learn the top pitfalls companies face and how to ensure your CRM project succeeds from day one.",
+
+  "blog.posts.15.meta": "Integration — 9 min read",
+  "blog.posts.15.category": "Integration",
+  "blog.posts.15.readTime": "9 min read",
+  "blog.posts.15.title": "CRM Integration 101: Connecting Dynamics 365 to Your Existing Tools",
+  "blog.posts.15.excerpt": "Learn how to integrate Dynamics 365 with ERP, marketing, accounting, and communication tools. A practical guide to CRM integration strategies and best practices.",
+
+  "blog.posts.16.meta": "Canada — 8 min read",
+  "blog.posts.16.category": "Canada",
+  "blog.posts.16.readTime": "8 min read",
+  "blog.posts.16.title": "Why Canadian Businesses Choose Dynamics 365",
+  "blog.posts.16.excerpt": "Discover why Canadian businesses choose Microsoft Dynamics 365 for CRM, operations, and digital transformation—from data residency to deep Microsoft 365 integration.",
+
   "blog.posts.1.cta.title": "Ready to build better relationships?",
   "blog.posts.1.cta.text": "See how VXN VISION can help you design relationship-driven growth strategies.",
   "blog.posts.1.cta.button": "Get started today",
@@ -178,8 +238,48 @@
   "blog.posts.5.cta.button": "Get started today",
   "blog.posts.6.cta.title": "Ready to improve your forecasting?",
   "blog.posts.6.cta.text": "See how VXN VISION can help you identify and manage deal risks more effectively.",
-  "blog.posts.6.cta.button": "Get started today"
-,
+  "blog.posts.6.cta.button": "Get started today",
+
+  "blog.posts.7.cta.title": "Need help choosing the right CRM?",
+  "blog.posts.7.cta.text": "VXN VISION helps Canadian organizations evaluate, implement, and optimize Microsoft Dynamics 365 so you get maximum ROI from day one.",
+  "blog.posts.7.cta.button": "Book a free Dynamics 365 consultation",
+
+  "blog.posts.8.cta.title": "Exploring Dynamics 365 for your organization?",
+  "blog.posts.8.cta.text": "VXN VISION helps business and IT leaders evaluate, plan, and implement Dynamics 365 with a clear roadmap and measurable outcomes.",
+  "blog.posts.8.cta.button": "Schedule a Dynamics 365 strategy session",
+
+  "blog.posts.9.cta.title": "Want to unlock Power Platform in your org?",
+  "blog.posts.9.cta.text": "VXN VISION helps teams identify high-impact use cases, build pilot apps, and scale Power Platform safely across the business.",
+  "blog.posts.9.cta.button": "Talk to a Power Platform specialist",
+
+  "blog.posts.10.cta.title": "Need a realistic Dynamics 365 budget for your org?",
+  "blog.posts.10.cta.text": "VXN VISION builds transparent, Canadian-focused cost models that include licences, services, and long-term ownership so there are no surprises.",
+  "blog.posts.10.cta.button": "Request a customized pricing estimate",
+
+  "blog.posts.11.cta.title": "Ready to unlock enterprise value with Dynamics 365?",
+  "blog.posts.11.cta.text": "VXN VISION partners with enterprises to design, implement, and optimize Dynamics 365 programs that deliver measurable business outcomes.",
+  "blog.posts.11.cta.button": "Discuss your Dynamics 365 roadmap",
+
+  "blog.posts.12.cta.title": "Modernizing CRM in a regulated environment?",
+  "blog.posts.12.cta.text": "VXN VISION helps Canadian financial institutions design Dynamics 365 solutions that balance compliance, security, and client experience.",
+  "blog.posts.12.cta.button": "Talk to our financial services team",
+
+  "blog.posts.13.cta.title": "Not sure which approach fits your use case?",
+  "blog.posts.13.cta.text": "VXN VISION evaluates your requirements, budget, and roadmap to recommend the right balance of Power Apps and traditional development.",
+  "blog.posts.13.cta.button": "Book a low-code strategy session",
+
+  "blog.posts.14.cta.title": "Planning a Dynamics 365 implementation?",
+  "blog.posts.14.cta.text": "VXN VISION uses a proven methodology to reduce risk, accelerate time-to-value, and maximize adoption for Dynamics 365 projects.",
+  "blog.posts.14.cta.button": "Request an implementation review",
+
+  "blog.posts.15.cta.title": "Need help integrating Dynamics 365 with your stack?",
+  "blog.posts.15.cta.text": "VXN VISION designs and implements integration architectures that keep Dynamics 365 connected, reliable, and easy to operate.",
+  "blog.posts.15.cta.button": "Book an integration architecture consult",
+
+  "blog.posts.16.cta.title": "Exploring Dynamics 365 for your Canadian business?",
+  "blog.posts.16.cta.text": "VXN VISION specializes in helping Canadian organizations adopt Dynamics 365 with strategies tailored to local regulations and realities.",
+  "blog.posts.16.cta.button": "Talk to a Canadian Dynamics 365 expert",
+
   "value.index.eyebrow": "VXN Vision",
   "value.index.title.part1": "Your Vision. Our Platform. ",
   "value.index.title.part2": "Unlimited CRM Possibilities.",
