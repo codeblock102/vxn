@@ -3,7 +3,7 @@
 // - Mobile navigation drawer
 // - Scroll reveal animations
 // - Contact form validation
-
+console.log("anazibg")
 (function () {
   var transitionDurationMs = 380;
   // Generation token used to cancel in-flight typing animations
@@ -373,52 +373,113 @@
         showError(email, 'Enter a valid email address.');
       }
 
-      // Validate reCAPTCHA (if present)
-      try {
-        var hasRecaptcha = typeof grecaptcha !== 'undefined';
-        if (hasRecaptcha) {
-          var recaptchaResponse = grecaptcha.getResponse();
-          if (!recaptchaResponse) {
-            isValid = false;
-            // Show message near captcha container
+      // Update top alert with count of missing required fields
+      var req = getRequiredFields();
+      var missing = req.filter(function(el){ return !(el.value && el.value.trim()); }).length;
+      updateTopAlert(missing);
+
+      // If invalid basic fields, stop here
+      if (!isValid) {
+        e.preventDefault();
+        if (firstInvalid && typeof firstInvalid.focus === 'function') {
+          firstInvalid.focus();
+          try { firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (_) {}
+        }
+        return;
+      }
+
+      // Optional server-side reCAPTCHA verification path.
+      // Only enabled if the form explicitly opts in via data-verify-recaptcha.
+      var needsServerVerify = form.hasAttribute('data-verify-recaptcha');
+      var recaptchaResponse = '';
+      if (needsServerVerify) {
+        try { recaptchaResponse = grecaptcha.getResponse(); } catch (_) { recaptchaResponse = ''; }
+        if (!recaptchaResponse) {
+          e.preventDefault();
+          var captchaContainer = form.querySelector('.g-recaptcha');
+          if (captchaContainer) {
+            var fieldLike = captchaContainer.closest('.field') || captchaContainer.parentElement || form;
+            var msgHost = fieldLike.querySelector('.error') || document.createElement('div');
+            msgHost.className = 'error';
+            msgHost.setAttribute('role', 'alert');
+            msgHost.textContent = 'Please complete the reCAPTCHA.';
+            if (!fieldLike.contains(msgHost)) fieldLike.appendChild(msgHost);
+          }
+          return;
+        }
+
+        // Block native submit while verifying on server
+        e.preventDefault();
+        var submitBtn = form.querySelector('button[type="submit"]');
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.setAttribute('data-loading', '1');
+        }
+        fetch('/.netlify/functions/verify-recaptcha', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ token: recaptchaResponse })
+        })
+          .then(function(res){ return res.json().catch(function(){ return {}; }); })
+          .then(function(data){
+            if (data && data.success) {
+              if (submitBtn) { submitBtn.disabled = false; submitBtn.removeAttribute('data-loading'); }
+              // Ensure hidden g-recaptcha-response field is present for backends that expect it
+              try {
+                var hidden = form.querySelector('input[name="g-recaptcha-response"]');
+                if (!hidden) {
+                  hidden = document.createElement('input');
+                  hidden.type = 'hidden';
+                  hidden.name = 'g-recaptcha-response';
+                  form.appendChild(hidden);
+                }
+                hidden.value = recaptchaResponse;
+              } catch (_) {}
+              // Proceed with actual submission to Netlify Forms
+              form.submit();
+            } else {
+              var captchaContainer = form.querySelector('.g-recaptcha');
+              if (captchaContainer) {
+                var fieldLike = captchaContainer.closest('.field') || captchaContainer.parentElement || form;
+                var msgHost = fieldLike.querySelector('.error') || document.createElement('div');
+                msgHost.className = 'error';
+                msgHost.setAttribute('role', 'alert');
+                // Map Google error codes to human-friendly messages
+                var codes = (data && data.errorCodes) || [];
+                var friendly = 'reCAPTCHA verification failed. Please try again.';
+                if (codes && codes.length) {
+                  var map = {
+                    'missing-input-secret': 'Server is missing the reCAPTCHA secret. Contact site owner.',
+                    'invalid-input-secret': 'Server reCAPTCHA secret is invalid. Contact site owner.',
+                    'missing-input-response': 'Please complete the reCAPTCHA.',
+                    'invalid-input-response': 'Invalid reCAPTCHA response. Please tick the checkbox again.',
+                    'bad-request': 'Bad verification request. Please retry.',
+                    'timeout-or-duplicate': 'reCAPTCHA expired or already used. Please check the box again.'
+                  };
+                  // Prefer the first code for messaging
+                  friendly = map[codes[0]] || friendly;
+                }
+                msgHost.textContent = friendly;
+                if (!fieldLike.contains(msgHost)) fieldLike.appendChild(msgHost);
+              }
+              if (submitBtn) { submitBtn.disabled = false; submitBtn.removeAttribute('data-loading'); }
+              try { grecaptcha.reset(); } catch (_) {}
+            }
+          })
+          .catch(function(){
             var captchaContainer = form.querySelector('.g-recaptcha');
             if (captchaContainer) {
               var fieldLike = captchaContainer.closest('.field') || captchaContainer.parentElement || form;
               var msgHost = fieldLike.querySelector('.error') || document.createElement('div');
               msgHost.className = 'error';
               msgHost.setAttribute('role', 'alert');
-              msgHost.textContent = 'Please complete the reCAPTCHA.';
+              msgHost.textContent = 'Verification service unavailable. Please retry in a moment.';
               if (!fieldLike.contains(msgHost)) fieldLike.appendChild(msgHost);
             }
-          }
-        }
-      } catch (err) {}
-
-      // Update top alert with count of missing required fields
-      var req = getRequiredFields();
-      var missing = req.filter(function(el){ return !(el.value && el.value.trim()); }).length;
-      updateTopAlert(missing);
-
-      if (!isValid) {
-        e.preventDefault();
-        // Focus and scroll to the first invalid field to guide the user
-        if (firstInvalid && typeof firstInvalid.focus === 'function') {
-          firstInvalid.focus();
-          try { firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (_) {}
-        }
-      } else {
-        e.preventDefault();
-        // Simulate successful submit for static site
-        form.reset();
-        var notice = document.createElement('div');
-        notice.className = 'pill';
-        notice.textContent = 'Thanks! Your message has been sent.';
-        form.appendChild(notice);
-        setTimeout(function () { if (notice && notice.parentElement) notice.parentElement.removeChild(notice); }, 4000);
-        // Hide alert and invalid states after successful submission
-        if (topAlert) topAlert.hidden = true;
-        fields.forEach(function(field){ if (field) field.classList.remove('is-invalid'); });
+            if (submitBtn) { submitBtn.disabled = false; submitBtn.removeAttribute('data-loading'); }
+          });
       }
+      // If no reCAPTCHA present, allow normal submission
     });
   }
 

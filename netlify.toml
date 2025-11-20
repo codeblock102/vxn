@@ -1,0 +1,12 @@
+[build]
+  publish = "vxn"
+  command = ""
+
+[functions]
+  directory = "netlify/functions"
+
+# Define environment variable name (set value in Netlify UI)
+[build.environment]
+  RECAPTCHA_SECRET = "" # Set this in Netlify dashboard, do not commit secrets
+
+
